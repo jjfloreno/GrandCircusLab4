@@ -27,10 +27,14 @@ namespace Lab4
                 if (int.TryParse(Console.ReadLine(), out userInput) && userInput > 0 && userInput < 10)
                 {
                     AnotherTry = true; //assigned to enter while loop when requesting to try again
-                    //output, calling the method containing the for loop
+                   
+                    //output
                     System.Threading.Thread.Sleep(500);
                     Console.Clear();
-                    Console.WriteLine($"The factorial of {userInput} is " + CalculateFactorial(userInput));
+                    Console.WriteLine($"The factorial of {userInput} is:");
+                    Console.WriteLine(CalculateFactorial(userInput)+" (for loop)");
+                    Console.WriteLine(RecursiveFactorial(userInput)+" (recursion)");
+
                 }
                 else
                 {
@@ -87,7 +91,14 @@ namespace Lab4
             return Result;
         }
 
-        //bonus = RECURSIVE method to get the factorial
+        //bonus RECURSIVE method to get the factorial
+        public static long RecursiveFactorial(int X)
+        {
+            if (X <= 1)
+                return 1;
+            else
+                return X * RecursiveFactorial(X - 1);
+        }
 
     }
 }
